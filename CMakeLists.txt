@@ -34,6 +34,13 @@ option(BUILD_SHARED_LIBS "Build libraries as shared as opposed to static" ON)
 
 find_package(YARP 3.12.0 COMPONENTS os sig dev OPTIONAL_COMPONENTS math REQUIRED)
 find_package(YARP 3.12.0 COMPONENTS serversql catch2 dev_tests)
+find_package(whisper REQUIRED)
+set(YARP_HAS_Whisper ${whisper_FOUND})
+if(whisper_FOUND)
+  message(STATUS "whisper library found: ${whisper_VERSION}")
+else()
+  message(FATAL_ERROR "whisper library not found. Please set WHISPER_ROOT to the installation directory of whisper.")
+endif()
 
 if(YARP_catch2_FOUND AND YARP_dev_tests_FOUND)
   option(YARP_COMPILE_TESTS "Enable YARP tests" OFF)
