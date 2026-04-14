@@ -20,11 +20,14 @@ yarp_prepare_plugin(whisperSpeechTranscription
 
 if(ENABLE_whisperSpeechTranscription)
   yarp_add_plugin(yarp_whisperSpeechTranscription)
+  generateDeviceParamsParser(WhisperSpeechTranscription yarp_whisperSpeechTranscription)
 
   target_sources(yarp_whisperSpeechTranscription
     PRIVATE
       whisperSpeechTranscription.cpp
       whisperSpeechTranscription.h
+      WhisperSpeechTranscription_ParamsParser.h
+      WhisperSpeechTranscription_ParamsParser.cpp
   )
 
 #  target_include_directories(yarp_whisperSpeechTranscription
