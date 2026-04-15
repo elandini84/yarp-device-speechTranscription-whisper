@@ -110,7 +110,7 @@ bool WhisperSpeechTranscription::open(yarp::os::Searchable& config)
     if(has_model_context)
     {
         resource_finder.setDefaultContext(m_model_context);
-        model_path = resource_finder.findFile(m_model_name);
+        model_path = resource_finder.findFileByName(m_model_name);
     }
     else
     {
